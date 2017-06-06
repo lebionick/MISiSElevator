@@ -4,7 +4,7 @@
 	         AnyLogic Project File 
 *************************************************	         
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.0.5.201704071710" AlpVersion="8.0.4">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.0.5.201704071857" AlpVersion="8.0.4">
 <Model>
 	<Id>1492277132134</Id>
 	<Name><![CDATA[MISiSElevator]]></Name>
@@ -771,14 +771,14 @@ floors.get(i).floorNumber=i+2;
 					</Properties>
 					<Action><![CDATA[    int nextfloor = -1;
     if(liftDirections.get(0) == "Вверх"){
-        for(int i = liftStages.get(0) - 1; i < 11; i++){
+        for(int i = liftStages.get(0); i < 11; i++){
             if(toUpList.get(i) != false){
                 nextfloor = i + 1;
                 break;
             }
         }
         if(nextfloor == -1){
-            for(int i = liftStages.get(0) - 1; i < 11; i++){
+            for(int i = liftStages.get(0); i < 11; i++){
                 if(toDownList.get(i) != false){
                     nextfloor = i + 1;
                     break;
@@ -789,14 +789,14 @@ floors.get(i).floorNumber=i+2;
             liftDirections.set(0, "Вниз");
         }
     } else {
-        for(int i = liftStages.get(0) - 1; i >= 0; i--){
+        for(int i = liftStages.get(0) - 2; i >= 0; i--){
             if(toDownList.get(i) != false){
                 nextfloor = i + 1;
                 break;
             }
         }
         if(nextfloor == -1){
-            for(int i = liftStages.get(0) - 1; i < 11; i++){
+            for(int i = liftStages.get(0) - 2; i >=0; i--){
                 if(toUpList.get(i) != false){
                     nextfloor = i + 1;
                     break;
@@ -807,7 +807,9 @@ floors.get(i).floorNumber=i+2;
             liftDirections.set(0, "Вверх");
         }
     }
-    moveLift(nextfloor);]]></Action>
+
+    moveLift(nextfloor);
+]]></Action>
 				</Event>
 			</Events>
 			<Functions>
@@ -825,9 +827,14 @@ floors.get(i).floorNumber=i+2;
 						<Name><![CDATA[stage]]></Name>
 						<Type><![CDATA[int]]></Type>
 					</Parameter>
-					<Body><![CDATA[liftLogic.moveTo.moveTo(floorsguilist.get(stage - 1));
-liftLogic.delaytime = abs(liftStages.get(0) - stage)*5;
-liftLogic.wait.freeAll();]]></Body>
+					<Body><![CDATA[if(stage == -1)
+	return;
+if (liftLogic.wait.size() != 0){
+	liftLogic.moveTo.moveTo(floorsguilist.get(stage - 1));
+	liftLogic.delaytime = abs(liftStages.get(0) - stage)*5;
+	liftLogic.nextFloor = stage;
+	liftLogic.wait.freeAll();
+}]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
@@ -847,8 +854,12 @@ liftLogic.wait.freeAll();]]></Body>
 						<Name><![CDATA[floor]]></Name>
 						<Type><![CDATA[int]]></Type>
 					</Parameter>
-					<Body><![CDATA[int a = floor;
-a = agent.schedule[1];]]></Body>
+					<Body><![CDATA[int want = agent.schedule[pairNum - 1];
+if (floor < want){
+	toUpList.set(want - 1, true);
+} else {
+	toDownList.set(want - 1, true);
+}]]></Body>
 				</Function>
 			</Functions>
 			<Schedules>
@@ -862,8 +873,8 @@ a = agent.schedule[1];]]></Body>
 					<ShowLabel>true</ShowLabel>
 					<ValueType>double_</ValueType>
 					<UnitType><![CDATA[RATE]]></UnitType>
-					<UnitOfValue Class="RateUnits"><![CDATA[PER_SECOND]]></UnitOfValue>
-					<DefaultValue>0.25</DefaultValue>
+					<UnitOfValue Class="RateUnits"><![CDATA[PER_MINUTE]]></UnitOfValue>
+					<DefaultValue>0.1</DefaultValue>
 					<RepresentationMode>intervals</RepresentationMode>
 					<RepresentationType>timeUnits</RepresentationType>
 					<FirstDayOfWeek>monday</FirstDayOfWeek>
@@ -1330,7 +1341,7 @@ for(int i = 0; i < 10; i++){
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[callFloor(ped,0);]]></Code>
+								<Code><![CDATA[callFloor(ped, 1);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -1708,7 +1719,9 @@ for(int i = 0; i < 10; i++){
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[liftStages.set(agent.LiftNum, 1);]]></Code>
+								<Code><![CDATA[	toUpList.set(0, false);
+	toDownList.set(0, false);
+liftStages.set(agent.LiftNum, 1);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -4933,7 +4946,12 @@ else
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[main.liftStages.set(agent.LiftNum,floorNumber);]]></Code>
+								<Code><![CDATA[if (main.liftStages.get(agent.LiftNum) < floorNumber){
+	main.toUpList.set(floorNumber - 1, false);
+} else {
+	main.toDownList.set(floorNumber - 1, false);
+}
+main.liftStages.set(agent.LiftNum, floorNumber);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -5912,6 +5930,9 @@ else
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[main.callFloor(ped, floorNumber);]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onBeginWait]]></Name>
@@ -6514,6 +6535,21 @@ else
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1496777951736</Id>
+					<Name><![CDATA[nextFloor]]></Name>
+					<X>270</X><Y>180</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[1]]></Code>
+						</InitialValue>
 					</Properties>
 				</Variable>
 			</Variables>
@@ -7491,7 +7527,11 @@ else
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[main.enter.take(agent);]]></Code>
+								<Code><![CDATA[if(nextFloor == 1)
+	main.enter.take(agent);
+else {
+	main.floors.get(nextFloor - 2).enter.take(agent);
+}]]></Code>
 							</Value>
 						</Parameter>
 					</Parameters>
