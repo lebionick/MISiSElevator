@@ -4,7 +4,7 @@
 	         AnyLogic Project File 
 *************************************************	         
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.0.5.201704071857" AlpVersion="8.0.4">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.0.5.201704071710" AlpVersion="8.0.4">
 <Model>
 	<Id>1492277132134</Id>
 	<Name><![CDATA[MISiSElevator]]></Name>
@@ -111,6 +111,21 @@
 						<Type><![CDATA[int]]></Type>        
 						<InitialValue Class="CodeValue">
 							<Code><![CDATA[1]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1496855053051</Id>
+					<Name><![CDATA[Wishes]]></Name>
+					<X>160</X><Y>190</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[boolean[]]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[new boolean[]{false,false,false,false,false,false,false,false,false,false,false}]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
@@ -369,7 +384,7 @@ false,false,false}]]></Code>
 				<Connector>
 					<Id>1493052916568</Id>
 					<Name><![CDATA[connector5]]></Name>
-					<X>370</X><Y>210</Y>
+					<X>380</X><Y>210</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -396,7 +411,7 @@ false,false,false}]]></Code>
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-10</X><Y>0</Y></Point>
+						<Point><X>-20</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
@@ -429,40 +444,7 @@ false,false,false}]]></Code>
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-50</X><Y>0</Y></Point>
-					</Points>
-				</Connector>
-				<Connector>
-					<Id>1493052916572</Id>
-					<Name><![CDATA[connector7]]></Name>
-					<X>220</X><Y>140</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<SourceEmbeddedObjectReference>
-						<PackageName><![CDATA[misiselevator]]></PackageName>
-						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[exit]]></ItemName>
-					</SourceEmbeddedObjectReference>
-					<SourceConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[Exit]]></ClassName>
-						<ItemName><![CDATA[in]]></ItemName>
-					</SourceConnectableItemReference>
-					<TargetEmbeddedObjectReference>
-						<PackageName><![CDATA[misiselevator]]></PackageName>
-						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[pickup]]></ItemName>
-					</TargetEmbeddedObjectReference>
-					<TargetConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[Pickup]]></ClassName>
-						<ItemName><![CDATA[out]]></ItemName>
-					</TargetConnectableItemReference>
-					<Points>
-						<Point><X>300</X><Y>70</Y></Point>
-						<Point><X>280</X><Y>70</Y></Point>
+						<Point><X>-40</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
@@ -696,6 +678,72 @@ false,false,false}]]></Code>
 						<Point><X>100</X><Y>70</Y></Point>
 					</Points>
 				</Connector>
+				<Connector>
+					<Id>1496857012977</Id>
+					<Name><![CDATA[connector7]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<SourceEmbeddedObjectReference>
+						<PackageName><![CDATA[misiselevator]]></PackageName>
+						<ClassName><![CDATA[Main]]></ClassName>
+						<ItemName><![CDATA[delay]]></ItemName>
+					</SourceEmbeddedObjectReference>
+					<SourceConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Delay]]></ClassName>
+						<ItemName><![CDATA[in]]></ItemName>
+					</SourceConnectableItemReference>
+					<TargetEmbeddedObjectReference>
+						<PackageName><![CDATA[misiselevator]]></PackageName>
+						<ClassName><![CDATA[Main]]></ClassName>
+						<ItemName><![CDATA[pickup]]></ItemName>
+					</TargetEmbeddedObjectReference>
+					<TargetConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Pickup]]></ClassName>
+						<ItemName><![CDATA[out]]></ItemName>
+					</TargetConnectableItemReference>
+					<Points>
+						<Point><X>530</X><Y>210</Y></Point>
+						<Point><X>500</X><Y>210</Y></Point>
+					</Points>
+				</Connector>
+				<Connector>
+					<Id>1496857015045</Id>
+					<Name><![CDATA[connector12]]></Name>
+					<X>570</X><Y>210</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<SourceEmbeddedObjectReference>
+						<PackageName><![CDATA[misiselevator]]></PackageName>
+						<ClassName><![CDATA[Main]]></ClassName>
+						<ItemName><![CDATA[delay]]></ItemName>
+					</SourceEmbeddedObjectReference>
+					<SourceConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Delay]]></ClassName>
+						<ItemName><![CDATA[out]]></ItemName>
+					</SourceConnectableItemReference>
+					<TargetEmbeddedObjectReference>
+						<PackageName><![CDATA[misiselevator]]></PackageName>
+						<ClassName><![CDATA[Main]]></ClassName>
+						<ItemName><![CDATA[exit]]></ItemName>
+					</TargetEmbeddedObjectReference>
+					<TargetConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Exit]]></ClassName>
+						<ItemName><![CDATA[in]]></ItemName>
+					</TargetConnectableItemReference>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>30</X><Y>0</Y></Point>
+					</Points>
+				</Connector>
 			</Connectors>
 			<Events>
 				<Event>
@@ -771,12 +819,23 @@ floors.get(i).floorNumber=i+2;
 					</Properties>
 					<Action><![CDATA[    int nextfloor = -1;
     if(liftDirections.get(0) == "Вверх"){
+    
         for(int i = liftStages.get(0); i < 11; i++){
             if(toUpList.get(i) != false){
                 nextfloor = i + 1;
                 break;
             }
         }
+        
+        for(int i = liftStages.get(0); i < 11; i++){
+        	if(Wishes[i] != false){
+        		if( (i+1) < nextfloor){
+        			nextfloor = i + 1;
+        			break;
+        		}
+        	}
+        }
+               
         if(nextfloor == -1){
             for(int i = liftStages.get(0); i < 11; i++){
                 if(toDownList.get(i) != false){
@@ -785,16 +844,29 @@ floors.get(i).floorNumber=i+2;
                 }
             }
         }
+        
         if(nextfloor == -1){
             liftDirections.set(0, "Вниз");
         }
+        
     } else {
+    
         for(int i = liftStages.get(0) - 2; i >= 0; i--){
             if(toDownList.get(i) != false){
                 nextfloor = i + 1;
                 break;
             }
         }
+        
+        for(int i = liftStages.get(0) - 2; i >= 0; i--){
+            if(Wishes[i] != false){
+        		if( (i+1) > nextfloor){
+        			nextfloor = i + 1;
+        			break;
+        		}
+        	}
+        }	
+        
         if(nextfloor == -1){
             for(int i = liftStages.get(0) - 2; i >=0; i--){
                 if(toUpList.get(i) != false){
@@ -803,11 +875,12 @@ floors.get(i).floorNumber=i+2;
                 }
             }
         }
+        
         if(nextfloor == -1){
             liftDirections.set(0, "Вверх");
         }
     }
-
+	
     moveLift(nextfloor);
 ]]></Action>
 				</Event>
@@ -830,7 +903,8 @@ floors.get(i).floorNumber=i+2;
 					<Body><![CDATA[if(stage == -1)
 	return;
 if (liftLogic.wait.size() != 0){
-	liftLogic.moveTo.moveTo(floorsguilist.get(stage - 1));
+	//liftLogic.moveTo.moveTo(floorsguilist.get(stage - 1));
+	liftLogic.curNode = floorsguilist.get(stage - 1);
 	liftLogic.delaytime = abs(liftStages.get(0) - stage)*5;
 	liftLogic.nextFloor = stage;
 	liftLogic.wait.freeAll();
@@ -854,11 +928,13 @@ if (liftLogic.wait.size() != 0){
 						<Name><![CDATA[floor]]></Name>
 						<Type><![CDATA[int]]></Type>
 					</Parameter>
-					<Body><![CDATA[int want = agent.schedule[pairNum - 1];
-if (floor < want){
-	toUpList.set(want - 1, true);
-} else {
-	toDownList.set(want - 1, true);
+					<Body><![CDATA[if(liftLogic.wait.size() > 0 && liftStages.get(0) == floor){
+	int want = agent.schedule[pairNum - 1];
+	if (floor < want){
+		toUpList.set(floor - 1, true);
+	} else {
+		toDownList.set(floor - 1, true);
+	}
 }]]></Body>
 				</Function>
 			</Functions>
@@ -873,8 +949,8 @@ if (floor < want){
 					<ShowLabel>true</ShowLabel>
 					<ValueType>double_</ValueType>
 					<UnitType><![CDATA[RATE]]></UnitType>
-					<UnitOfValue Class="RateUnits"><![CDATA[PER_MINUTE]]></UnitOfValue>
-					<DefaultValue>0.1</DefaultValue>
+					<UnitOfValue Class="RateUnits"><![CDATA[PER_SECOND]]></UnitOfValue>
+					<DefaultValue>0.005</DefaultValue>
 					<RepresentationMode>intervals</RepresentationMode>
 					<RepresentationType>timeUnits</RepresentationType>
 					<FirstDayOfWeek>monday</FirstDayOfWeek>
@@ -900,32 +976,32 @@ if (floor < want){
 						<Interval>
 							<Start>530000</Start>
 							<End>550000</End>
-							<Value>1.5</Value>
+							<Value>0.3</Value>
 						</Interval>
 						<Interval>
 							<Start>640000</Start>
 							<End>660000</End>
-							<Value>2.0</Value>
+							<Value>1.6</Value>
 						</Interval>
 						<Interval>
 							<Start>760000</Start>
 							<End>780000</End>
-							<Value>3.0</Value>
+							<Value>0.6</Value>
 						</Interval>
 						<Interval>
 							<Start>870000</Start>
 							<End>890000</End>
-							<Value>2.0</Value>
+							<Value>0.4</Value>
 						</Interval>
 						<Interval>
 							<Start>965000</Start>
 							<End>985000</End>
-							<Value>1.5</Value>
+							<Value>0.3</Value>
 						</Interval>
 						<Interval>
 							<Start>1070000</Start>
 							<End>1090000</End>
-							<Value>1.0</Value>
+							<Value>0.2</Value>
 						</Interval>
 					</Intervals>
 					<Exceptions>
@@ -1406,7 +1482,7 @@ for(int i = 0; i < 10; i++){
 					<X>450</X><Y>280</Y>
 					<Label><X>-10</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>false</PresentationFlag>
+					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<ActiveObjectClass>
 						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
@@ -1555,6 +1631,9 @@ for(int i = 0; i < 10; i++){
 					<Parameters>
 						<Parameter>
 							<Name><![CDATA[capacity]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[14]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[maximumCapacity]]></Name>
@@ -1588,6 +1667,10 @@ for(int i = 0; i < 10; i++){
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[int want = agent.schedule[pairNum-1];
+Wishes[want-1]=true;]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onAtExit]]></Name>
@@ -1719,9 +1802,10 @@ for(int i = 0; i < 10; i++){
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[	toUpList.set(0, false);
-	toDownList.set(0, false);
-liftStages.set(agent.LiftNum, 1);]]></Code>
+								<Code><![CDATA[toUpList.set(0, false);
+toDownList.set(0, false);
+Wishes[0] = false;
+liftStages.set(0, 1);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -1875,7 +1959,7 @@ liftStages.set(agent.LiftNum, 1);]]></Code>
 				<EmbeddedObject>
 					<Id>1493052916533</Id>
 					<Name><![CDATA[DropOffDelay]]></Name>
-					<X>370</X><Y>190</Y>
+					<X>380</X><Y>190</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2085,7 +2169,7 @@ liftStages.set(agent.LiftNum, 1);]]></Code>
 				<EmbeddedObject>
 					<Id>1493052916564</Id>
 					<Name><![CDATA[exit]]></Name>
-					<X>520</X><Y>200</Y>
+					<X>600</X><Y>200</Y>
 					<Label><X>-5</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2158,7 +2242,7 @@ liftStages.set(agent.LiftNum, 1);]]></Code>
 					<X>230</X><Y>280</Y>
 					<Label><X>-5</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>false</PresentationFlag>
+					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<ActiveObjectClass>
 						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
@@ -2582,10 +2666,7 @@ liftStages.set(agent.LiftNum, 1);]]></Code>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[if(pairNum != 0)
-	ped.schedule = Funcs.GenSche(pairNum, Funcs.Seed());
-else
-	ped.schedule = Funcs.GenSche(1, Funcs.Seed());]]></Code>
+								<Code><![CDATA[ped.schedule = Funcs.GenSche(pairNum, Funcs.Seed());]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -2593,6 +2674,106 @@ else
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEndGrouping]]></Name>
+						</Parameter>
+					</Parameters>
+					<ReplicationFlag>false</ReplicationFlag>
+					<Replication Class="CodeValue">
+						<Code><![CDATA[100]]></Code>
+					</Replication>
+					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<InitialSpeedCode Class="CodeUnitValue">
+						<Code><![CDATA[10]]></Code>
+						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+					</InitialSpeedCode>
+					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<XCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</XCode>
+					<YCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</YCode>
+					<ZCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ZCode>
+					<ColumnCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ColumnCode>
+					<RowCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</RowCode>
+					<LatitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LatitudeCode>
+					<LongitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LongitudeCode>
+					<LocationNameCode Class="CodeValue">
+						<Code><![CDATA[""]]></Code>
+					</LocationNameCode>
+					<InitializationType>SPECIFIED_NUMBER</InitializationType>
+					<InitializationDatabaseTableQuery>
+						<TableReference>
+						</TableReference>
+					</InitializationDatabaseTableQuery>
+					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+					<QuantityColumn>
+					</QuantityColumn>
+				</EmbeddedObject>
+				<EmbeddedObject>
+					<Id>1496857011154</Id>
+					<Name><![CDATA[delay]]></Name>
+					<X>530</X><Y>190</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Delay]]></ClassName>
+					</ActiveObjectClass>
+					<GenericParameterSubstitute>
+						<GenericParameterSubstituteReference>
+							<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+							<ClassName><![CDATA[Delay]]></ClassName>
+							<ItemName><![CDATA[1412336242930]]></ItemName>
+						</GenericParameterSubstituteReference>
+					</GenericParameterSubstitute>
+					<Parameters>
+						<Parameter>
+							<Name><![CDATA[type]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[delayTime]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[capacity]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[maximumCapacity]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[entityLocation]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[pushProtocol]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[restoreEntityLocationOnExit]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[forceStatisticsCollection]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onEnter]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onAtExit]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onExit]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onRemove]]></Name>
 						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
@@ -4946,12 +5127,10 @@ else
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[if (main.liftStages.get(agent.LiftNum) < floorNumber){
-	main.toUpList.set(floorNumber - 1, false);
-} else {
-	main.toDownList.set(floorNumber - 1, false);
-}
-main.liftStages.set(agent.LiftNum, floorNumber);]]></Code>
+								<Code><![CDATA[main.toUpList.set(floorNumber - 1, false);
+main.toDownList.set(floorNumber - 1, false);
+main.Wishes[floorNumber-1]=false;
+main.liftStages.set(0, floorNumber);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -6552,6 +6731,21 @@ main.liftStages.set(agent.LiftNum, floorNumber);]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1496853662135</Id>
+					<Name><![CDATA[curNode]]></Name>
+					<X>270</X><Y>210</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[Object]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[main.point]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
 			</Variables>
 			<Connectors>
 				<Connector>
@@ -7162,6 +7356,10 @@ main.liftStages.set(agent.LiftNum, floorNumber);]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[timeout]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[5]]></Code>
+								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[enablePreemption]]></Name>
@@ -7272,7 +7470,7 @@ main.liftStages.set(agent.LiftNum, floorNumber);]]></Code>
 						<Parameter>
 							<Name><![CDATA[destinationNode]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[main.point]]></Code>
+								<Code><![CDATA[(INode)curNode]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -7679,7 +7877,7 @@ else {
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[int[]]]></Type>        
 						<InitialValue Class="CodeValue">
-							<Code><![CDATA[new int[6]]]></Code>
+							<Code><![CDATA[new int[7]]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
@@ -7941,6 +8139,7 @@ getPresentation().setPresentable( getEngine().getRoot() );]]></ActionCode>
  * Funcs
  */	
 public class Funcs implements Serializable {
+	
 	public static int[] GenSche(int start, int seed){
 	    //changeable parameters
 	    int maxClasses = 6;
@@ -7957,6 +8156,7 @@ public class Funcs implements Serializable {
 	    }
 	    return schedule;
 	}
+	
 	public static int Seed(){
 		Random r = new Random();
 		return r.nextInt() % 20 + 5;
